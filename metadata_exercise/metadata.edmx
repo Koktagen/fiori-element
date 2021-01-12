@@ -31,6 +31,18 @@
                 <Property Name="UnitsOnOrder" Type="Edm.Int16" />
                 <Property Name="Discounted" Type="Edm.Boolean" />
             </EntityType>
+            <Association Name="FK_Suppliers_Product">
+                <End Multiplicity="0..1" Role="Suppliers" Type="SalesModel.Suppliers"/>
+                <End Multiplicity="*" Role="Product" Type="SalesModel.Product"/>
+                <ReferentialConstraint>
+                    <Principal Role="Suppliers">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="Product">
+                        <PropertyRef Name="SupplierId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
             <EntityContainer Name="SalesEntities" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
 	            <EntitySet EntityType="SalesModel.Suppliers" Name="Suppliers"/>
             </EntityContainer>
