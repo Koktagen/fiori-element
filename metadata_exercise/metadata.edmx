@@ -38,7 +38,7 @@
                     <PropertyRef Name="Id"/>
                 </Key>
                 <Property Name="Id" Type="Edm.Int32"/>
-                <Property Name="ProductID" Type="Edm.Int32"/>
+                <Property Name="ProductId" Type="Edm.Int32"/>
                 <Property Name="CustomerName" Type="Edm.String" MaxLength="40"/>
                 <Property Name="OrderDate" Type="Edm.DateTime"/>
                 <Property Name="ShippedDate" Type="Edm.DateTime"/>
@@ -53,6 +53,18 @@
                     </Principal>
                     <Dependent Role="Product">
                         <PropertyRef Name="SupplierId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="FK_Product_Order">
+                <End Multiplicity="0..1" Role="Product" Type="SalesModel.Product"/>
+                <End Multiplicity="*" Role="Order" Type="SalesModel.Order"/>
+                <ReferentialConstraint>
+                    <Principal Role="Product">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="Order">
+                        <PropertyRef Name="ProductId"/>
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
