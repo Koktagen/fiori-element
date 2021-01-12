@@ -4,9 +4,9 @@
         <Schema Namespace="SalesModel" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
             <EntityType Name="Suppliers">
                 <Key>
-	                <PropertyRef Name="SuppliersId"/>
+	                <PropertyRef Name="Id"/>
                 </Key>
-                <Property Name="SuppliersId" Type="Edm.Int32" Nullabel="false" />
+                <Property Name="Id" Type="Edm.Int32" Nullable="false" />
                 <Property Name="Name" Type="Edm.String" MaxLength="40" />
                 <Property Name="Category" Type="Edm.String" MaxLength="20" />
                 <Property Name="Address" Type="Edm.String" MaxLength="50" />
@@ -17,6 +17,19 @@
                 <Property Name="Website" Type="Edm.String" MaxLength="255" />
                 <NavigationProperty FromRole="Suppliers" Name="Product" Relationship="SalesModel.FK_Suppliers_Product"
                     ToRole="Product"/>
+            </EntityType>
+            <EntityType Name="Product">
+                <Key>
+	                <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+                <Property Name="Name" Type="Edm.String" MaxLength="40" />
+                <Property Name="SupplierId" Type="Edm.Int32" />
+                <Property Name="QuantityPerUnit" Type="Edm.String" MaxLength="20" />
+                <Property Name="UnitPrice" Type="Edm.Decimal" Percision="19" Scale="2" />
+                <Property Name="UnitsInStock" Type="Edm.Int16" />
+                <Property Name="UnitsOnOrder" Type="Edm.Int16" />
+                <Property Name="Discounted" Type="Edm.Boolean" />
             </EntityType>
             <EntityContainer Name="SalesEntities" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
 	            <EntitySet EntityType="SalesModel.Suppliers" Name="Suppliers"/>
