@@ -80,7 +80,7 @@
                 </ReferentialConstraint>
             </Association>
             <EntityContainer Name="SalesEntities" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-                <EntitySet EntityType="SalesModel.VH_Country" Name="VH_Country" />
+                <EntitySet EntityType="SalesModel.VH_Country" Name="VH_Countries" />
                 <EntitySet EntityType="SalesModel.Supplier" Name="Suppliers" />
                 <EntitySet EntityType="SalesModel.Product" Name="Products" />
                 <EntitySet EntityType="SalesModel.Order" Name="Orders" />
