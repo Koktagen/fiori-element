@@ -7,6 +7,13 @@
             xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
             xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
         >
+            <EntityType Name="VH_Country">
+                <Key>
+                    <PropertyRef Name="Code" />
+                </Key>
+                <Property Name="Code" Type="Edm.String" MaxLength="5" />
+                <Property Name="Text" Type="Edm.String" MaxLength="20" />
+            </EntityType>
             <EntityType Name="Supplier">
                 <Key>
                     <PropertyRef Name="Id" />
@@ -72,6 +79,7 @@
                 </ReferentialConstraint>
             </Association>
             <EntityContainer Name="SalesEntities" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+                <EntitySet EntityType="SalesModel.VH_Country" Name="VH_Country" />
                 <EntitySet EntityType="SalesModel.Supplier" Name="Suppliers" />
                 <EntitySet EntityType="SalesModel.Product" Name="Products" />
                 <EntitySet EntityType="SalesModel.Order" Name="Orders" />
