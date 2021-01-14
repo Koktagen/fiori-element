@@ -69,6 +69,30 @@
                         <PropertyValue Path="LogoPath" Property="TypeImageUrl" />
                     </Record>
                 </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="SupplierInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Category"/>
+                                    <PropertyValue Property="Value" Path="Category"/>
+                                </Record>
+                                <Record Type="UI.DataFieldWithUrl">
+                                    <PropertyValue Property="Url" Path="Website"/>
+                                    <PropertyValue Property="Value" Path="Website"/>
+                                    <PropertyValue Property="Label" String="Website"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#SupplierInfo"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
             </Annotations>
             <Annotations Target="SalesModel.SalesEntities/Suppliers">
                 <Annotation Term="Capabilities.InsertRestrictions">
