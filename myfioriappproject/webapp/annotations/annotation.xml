@@ -129,13 +129,18 @@
                             <Collection>
                                 <Record Type="Common.ValueListParameterInOut">
                                     <PropertyValue Property="LocalDataProperty" PropertyPath="Country" />
-                                    <PropertyValue Property="ValueListProperty" String="Text" />
+                                    <!-- render SalesModel.VH_Country/Code by SalesModel.VH_Country/Text -->
+                                    <PropertyValue Property="ValueListProperty" String="Code" />
                                 </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
                 </Annotation>
                 <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
+            </Annotations>
+            <!-- reference Country Code to its actual name -->
+            <Annotations Target="SalesModel.VH_Country/Code">
+                <Annotation Term="Common.Text" Path="Text" />
             </Annotations>
             <Annotations Target="SalesModel.Product">
                 <Annotation Term="UI.LineItem">
